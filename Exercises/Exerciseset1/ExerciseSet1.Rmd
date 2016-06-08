@@ -57,6 +57,9 @@ For more information on downloading finance data from the internet as well as on
 
 1. Can you find some interesting finance related R package or github repository? 
 **Your Answers here:**
+R package Task View https://cran.r-project.org/web/views/Finance.html
+github repository https://github.com/Confunctionist/finance with integrated formulas like Black-Scholes model
+
 <br>
 <br>
 
@@ -86,6 +89,28 @@ pnl_plot(SPY)
 
 **Your Answers here:**
 <br>
+1.-
+
+mytickers = c("SPY", "AAPL")   
+
+The .R file used was dataSet1.R, the function myticketers is a matrix where SPY are the rows (day trade inforation) and the colum is the determined stock 
+2.- 
+I found two different codes for it
+
+round(100*mean(StockReturns[,2]),1)
+[1] 0.0007298525
+
+round(100*sum(StockReturns[,2]),1)
+[1] 575.9
+
+round(100*sd(StockReturns[,2]),3)
+[1] 2.424
+
+3.- To check yahoo, first you have to define it on the function 
+mytickers = c("SPY", "YHOO")   
+YHOO = StockReturns[,"YHOO"]
+pnl_plot(YHOO)
+and do the same calculations with YHOO instead of StockReturns
 <br>
 <br>
 <br>
@@ -126,11 +151,14 @@ We can also transpose the matrix of returns to create a new "horizontal" matrix.
 2. Based on the help for the R function *apply* (`help(apply)`), can you create again the portfolio of S&P and Apple and plot the returns in a new figure below?
 
 **Your Answers here:**
-<br>
-<br>
-<br>
-<br>
 
+<br> > transposedData = t(StockReturns)
+nrow(transposedData)
+[1] 2
+ncol(transposedData)
+[1] 3880
+
+For 2 rows and 3880 columns
 <hr>
 <hr>
 
@@ -145,6 +173,7 @@ This is an important step and will get you to think about the overall process on
 
 **Your Answers here:**
 <br>
+startDate = "2001-01-01" you can change the date of start on the line of startDate in the dataSet1.R
 <br>
 <br>
 <br>
@@ -178,7 +207,12 @@ myData + StockReturns[1:40,])
 ```
 
 **Your Answers here:**
-<br>
+<br>> It creates a matrix (1:20) as can be seen with the comands ncol, nrow. One can transpose to have 1 row 
+
+ncol(myData)
+[1] 1
+nrow(myData)
+[1] 20
 <br>
 <br>
 <br>
